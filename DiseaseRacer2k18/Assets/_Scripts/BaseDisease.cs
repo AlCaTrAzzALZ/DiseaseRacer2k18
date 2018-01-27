@@ -9,6 +9,8 @@ public class BaseDisease : MonoBehaviour
 
     public WheelDrive motor;
 
+    public int racePosition;
+
     bool isRacing_ = false;
 
     public bool IsRacing
@@ -17,11 +19,12 @@ public class BaseDisease : MonoBehaviour
         set { isRacing_ = value; }
     }
 
-
     // Use this for initialization
     void Start ()
     {
+
         motor = GetComponent<WheelDrive>();
+
 	}
 
 }

@@ -14,6 +14,12 @@ public class SplitCanvas : MonoBehaviour
     [SerializeField]
     BoostMeter boostMeterRef_;
 
+    [SerializeField]
+    TextMeshProUGUI endRaceText_;
+
+    [SerializeField]
+    TextMeshProUGUI endRaceInfo_;
+
     private void Awake()
     {
         cameraRef_ = GetComponentInParent<Camera>();
@@ -40,5 +46,14 @@ public class SplitCanvas : MonoBehaviour
         {
             boostMeterRef_.SetBoostLevel(diseaseRef_.motor.BoostFuel);
         }
+    }
+
+    public void ShowEndRaceInfo(int pos, int numberOfRacers, float time)
+    {
+        endRaceText_.text = (pos <= 1) ? "You Win!" : "You Lose!";
+        endRaceInfo_.text = "Pos: " + pos.ToString() + "/" + numberOfRacers.ToString() + "\n Time: " + time.ToString("F2") + "s";
+
+        endRaceText_.gameObject.SetActive(true);
+        endRaceInfo_.gameObject.SetActive(true);
     }
 }

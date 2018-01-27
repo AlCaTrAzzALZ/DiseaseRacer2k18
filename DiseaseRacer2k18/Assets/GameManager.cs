@@ -34,6 +34,13 @@ public class GameManager : MonoBehaviour
 
     public int numberOfPlayers_ = 2;
 
+    bool hasRaceStarted_ = false;
+    bool isRaceOver_ = false;
+
+    List<BaseDisease> finishingOrder_ = new List<BaseDisease>();
+
+    float raceTime = 0f;
+
     [SerializeField]
     AudioClip readyClip;
     [SerializeField]
@@ -95,6 +102,38 @@ public class GameManager : MonoBehaviour
         {
             disease.IsRacing = true;
         }
+
+        hasRaceStarted_ = true;
+    }
+
+    private void Update()
+    {
+        if (hasRaceStarted_ && !isRaceOver_)
+        {
+            raceTime += Time.deltaTime;
+            screenCanvas_.raceTimeText_.text = "RACE TIME \n" + string.Format("{0:0}:{1:00}", (int)raceTime / 60, (int)raceTime % 60);
+        }
+    }
+
+    public void CrossedFinishLine(BaseDisease disease)
+    {
+        finishingOrder_.Add(disease);
+
+        disease.IsRacing = false;
+
+        disease.GetComponentInChildren<SplitCanvas>().ShowEndRaceInfo(disease.racePosition, diseases_.Count, raceTime);
+
+        if (!isRaceOver_)
+        {
+            EndRace();
+            isRaceOver_ = true;
+        }
+    }
+
+    void EndRace()
+    {
+        //show end race UI
+        screenCanvas_.raceEndText_.gameObject.SetActive(true);
     }
 
     void CreatePlayer(int playerId)

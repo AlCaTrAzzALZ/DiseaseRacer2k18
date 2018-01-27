@@ -9,6 +9,8 @@ public class BaseDisease : MonoBehaviour
 
     public DiseaseMotor motor;
 
+    public int racePosition;
+
     bool isRacing_ = false;
 
     public bool IsRacing
@@ -17,15 +19,10 @@ public class BaseDisease : MonoBehaviour
         set { isRacing_ = value; }
     }
 
-
     // Use this for initialization
     void Start ()
     {
         motor = GetComponent<DiseaseMotor>();
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
 }

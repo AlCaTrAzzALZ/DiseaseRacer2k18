@@ -7,9 +7,11 @@ public class ScreenCanvas : MonoBehaviour
 {
 
     public TextMeshProUGUI raceStartText_;
+    public TextMeshProUGUI raceEndText_;
+    public TextMeshProUGUI raceTimeText_;
 
-	// Use this for initialization
-	void Start ()
+    // Use this for initialization
+    void Start ()
     {
 		
 	}

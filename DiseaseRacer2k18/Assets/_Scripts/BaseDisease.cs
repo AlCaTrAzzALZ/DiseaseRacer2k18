@@ -7,7 +7,7 @@ public class BaseDisease : MonoBehaviour
 
     public string diseaseName_ = "Base Disease";
 
-    public DiseaseMotor motor;
+    public WheelDrive motor;
 
     public int racePosition;
 
@@ -22,7 +22,9 @@ public class BaseDisease : MonoBehaviour
     // Use this for initialization
     void Start ()
     {
-        motor = GetComponent<DiseaseMotor>();
+
+        motor = GetComponent<WheelDrive>();
+
 	}
 
 }

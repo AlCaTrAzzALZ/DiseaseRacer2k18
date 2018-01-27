@@ -838,6 +838,15 @@ MonoBehaviour:
       _behaviorId: 0
       _userAssignable: 1
       _categoryId: 0
+    - _id: 4
+      _name: handbrake
+      _type: 1
+      _descriptiveName: handbrake
+      _positiveDescriptiveName: 
+      _negativeDescriptiveName: 
+      _behaviorId: 0
+      _userAssignable: 1
+      _categoryId: 0
     actionCategories:
     - _name: Default
       _descriptiveName: Default
@@ -847,7 +856,7 @@ MonoBehaviour:
     actionCategoryMap:
       list:
       - categoryId: 0
-        actionIds: 00000000010000000200000003000000
+        actionIds: 0000000001000000020000000300000004000000
     inputBehaviors:
     - _id: 0
       _name: Default
@@ -941,6 +950,17 @@ MonoBehaviour:
         _actionId: 3
         _elementType: 1
         _elementIdentifierId: 4
+        _axisRange: 0
+        _invert: 0
+        _axisContribution: 0
+        _keyboardKeyCode: 0
+        _modifierKey1: 0
+        _modifierKey2: 0
+        _modifierKey3: 0
+      - _actionCategoryId: 0
+        _actionId: 4
+        _elementType: 1
+        _elementIdentifierId: 7
         _axisRange: 0
         _invert: 0
         _axisContribution: 0
@@ -1055,11 +1075,22 @@ MonoBehaviour:
         _modifierKey1: 0
         _modifierKey2: 0
         _modifierKey3: 0
+      - _actionCategoryId: 0
+        _actionId: 4
+        _elementType: 1
+        _elementIdentifierId: -1
+        _axisRange: 0
+        _invert: 0
+        _axisContribution: 0
+        _keyboardKeyCode: 120
+        _modifierKey1: 0
+        _modifierKey2: 0
+        _modifierKey3: 0
     mouseMaps: []
     customControllerMaps: []
     customControllers: []
     playerIdCounter: 5
-    actionIdCounter: 4
+    actionIdCounter: 5
     actionCategoryIdCounter: 1
     inputBehaviorIdCounter: 1
     mapCategoryIdCounter: 1
@@ -1173,6 +1204,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1882379989}
   - component: {fileID: 1882379990}
+  - component: {fileID: 1882379991}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1206,13 +1238,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseDiseasePrefab_: {fileID: 114044170830634262, guid: d76b96edb74deac459d38d00fd3160a2,
     type: 2}
-  splitCameraPrefab_: {fileID: 114266937738949426, guid: 846fe54a93107df478fbc97d5b7de7c4,
+  blackDeathPrefab_: {fileID: 114753033716821240, guid: 3d6ba7bc1dfdcd84fb3e3f5a2f8febc3,
+    type: 2}
+  SyphilisPrefab_: {fileID: 114463727905226952, guid: 761f6c06dadeaa946b01dd84bae34657,
+    type: 2}
+  ChlamydiaPrefab_: {fileID: 114678571430097712, guid: 08ed956e2c8038045a3181785d42b302,
+    type: 2}
+  EcoliPrefab_: {fileID: 114894100916603472, guid: 63173cc1622786845aef58a2ffbba634,
+    type: 2}
+  MadCowPrefab_: {fileID: 114696000713412322, guid: e98413cfd8f74604ab45275c2660d620,
+    type: 2}
+  splitCameraPrefab_: {fileID: 114221491839791684, guid: 846fe54a93107df478fbc97d5b7de7c4,
     type: 2}
   screenCanvas_: {fileID: 791124727}
   numberOfPlayers_: 2
   readyClip: {fileID: 8300000, guid: 2a0b0afb6d8ce6b46966bc359fa1b691, type: 3}
   setClip: {fileID: 8300000, guid: 6745adacc81bb9e44988e60e972e015b, type: 3}
   goClip: {fileID: 8300000, guid: 44442f26d600e344e9889874c18ec0bc, type: 3}
+--- !u!81 &1882379991
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1882379988}
+  m_Enabled: 1
 --- !u!1 &2074230266
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,6 +8,21 @@ public class GameManager : MonoBehaviour
     BaseDisease baseDiseasePrefab_;
 
     [SerializeField]
+    BaseDisease blackDeathPrefab_;
+
+    [SerializeField]
+    BaseDisease SyphilisPrefab_;
+
+    [SerializeField]
+    BaseDisease ChlamydiaPrefab_;
+
+    [SerializeField]
+    BaseDisease EcoliPrefab_;
+
+    [SerializeField]
+    BaseDisease MadCowPrefab_;
+
+    [SerializeField]
     SplitScreenCamera splitCameraPrefab_;
 
     [SerializeField]
@@ -84,8 +99,40 @@ public class GameManager : MonoBehaviour
 
     void CreatePlayer(int playerId)
     {
-        var disease = Instantiate(baseDiseasePrefab_, GetSpawnPoint().position, Quaternion.identity);
-        var motor = disease.GetComponent<DiseaseMotor>();
+        BaseDisease diseasePrefab = baseDiseasePrefab_;
+
+        int val = Random.Range(1, 6);
+
+        switch (val)
+        {
+            case 1:
+                diseasePrefab = blackDeathPrefab_;
+                break;
+
+            case 2:
+                diseasePrefab = SyphilisPrefab_;
+                break;
+
+            case 3:
+                diseasePrefab = ChlamydiaPrefab_;
+                break;
+
+            case 4:
+                diseasePrefab = EcoliPrefab_;
+                break;
+
+            case 5:
+                diseasePrefab = MadCowPrefab_;
+                break;
+
+            default:
+                Debug.LogError("You fucked up");
+                break;
+        }
+
+
+        BaseDisease disease = Instantiate(diseasePrefab, GetSpawnPoint().position, Quaternion.identity);
+        var motor = disease.GetComponent<WheelDrive>();
         motor.playerId = playerId;
 
         var camera = Instantiate(splitCameraPrefab_, disease.transform);
@@ -103,6 +150,8 @@ public class GameManager : MonoBehaviour
         }
 
         camera.GetComponentInChildren<SplitCanvas>().diseaseRef_ = disease;
+
+        camera.GetComponent<FollowCamera>().target = disease.gameObject;
 
         cameras_.Add(camera.GetComponent<Camera>());
 

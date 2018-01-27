@@ -27,7 +27,7 @@ public class SplitCanvas : MonoBehaviour
         {
             if (diseaseRef_)
             {
-                diseaseNameText_.text = diseaseRef_.diseaseName_ + " - "+ diseaseRef_.GetComponent<DiseaseMotor>().playerId;
+                diseaseNameText_.text = diseaseRef_.diseaseName_ + " - "+ diseaseRef_.GetComponent<WheelDrive>().playerId;
 
                 canvasInitialised_ = true;
             }

@@ -7,7 +7,7 @@ public class BaseDisease : MonoBehaviour
 
     public string diseaseName_ = "Base Disease";
 
-    public DiseaseMotor motor;
+    public WheelDrive motor;
 
     bool isRacing_ = false;
 
@@ -21,11 +21,7 @@ public class BaseDisease : MonoBehaviour
     // Use this for initialization
     void Start ()
     {
-        motor = GetComponent<DiseaseMotor>();
+        motor = GetComponent<WheelDrive>();
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
 }
